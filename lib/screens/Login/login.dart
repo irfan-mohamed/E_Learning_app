@@ -1,5 +1,6 @@
 import 'package:e_learning/screens/Login/RegisterInstitution.dart';
 import 'package:e_learning/screens/Login/RegisterStudent.dart';
+import 'package:e_learning/screens/introduction.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -165,6 +166,15 @@ class _LoginFormState extends State<LoginForm> {
                                         SnackBar(
                                             content: Text(
                                                 'Email and Password Are Required')));
+                                  } else {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: ((ctx) {
+                                          return MyHomePage();
+                                        }),
+                                      ),
+                                    );
                                   }
                                 });
                               },
