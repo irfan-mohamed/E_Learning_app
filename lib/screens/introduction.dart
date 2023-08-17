@@ -70,8 +70,10 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 30,
+                    Expanded(
+                      child: SizedBox(
+                        height: 30,
+                      ),
                     ),
                     Text(
                       "Hi, Name",
@@ -96,22 +98,25 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 53,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.all(0.15),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.search),
-                          hintText: 'Search...',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
+                            filled: true,
+                            fillColor: Colors.white,
+                            prefixIcon: Icon(Icons.search),
+                            hintText: 'Search...',
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -186,7 +191,8 @@ class HomeScreen extends StatelessWidget {
                                   ],
                                   image: DecorationImage(
                                       fit: BoxFit.fill,
-                                      image: AssetImage('assetName'))),
+                                      image: NetworkImage(
+                                          'https://uploads-ssl.webflow.com/5d8c779a4b0051057693051b/5d8c779a4b0051657f930606_DKO_PelhamSt_%C2%A9derekswalwell003.jpg'))),
                             ),
                             Container(
                               child: Padding(
@@ -224,52 +230,58 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Popular Tags',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 5,
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    height: 40,
-                    child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: popularTags.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.only(right: 10),
-                          padding: EdgeInsets.symmetric(horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Center(
-                            child: Text(
-                              popularTags[index],
-                              style: TextStyle(
-                                color: Colors.white,
+                    Text(
+                      'Popular Tags',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      height: 40,
+                      child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: popularTags.length,
+                        itemBuilder: (context, index) {
+                          return Expanded(
+                            flex: 1,
+                            child: Container(
+                              margin: EdgeInsets.only(right: 10),
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  popularTags[index],
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

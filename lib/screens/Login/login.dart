@@ -75,54 +75,56 @@ class _LoginFormState extends State<LoginForm> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isStudentMode = true;
+                      });
+                    },
+                    child: Text(
+                      'Student',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      isStudentMode = true;
-                    });
-                  },
-                  child: Text(
-                    'Student',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isStudentMode = false;
+                      });
+                    },
+                    child: Text(
+                      'Institution',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      isStudentMode = false;
-                    });
-                  },
-                  child: Text(
-                    'Institution',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             Center(
               child: Column(
@@ -170,7 +172,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: ((ctx) {
+                                        builder: ((context) {
                                           return MyHomePage();
                                         }),
                                       ),
@@ -191,7 +193,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: ((ctx) {
+                                        builder: ((context) {
                                           return Registerstudent();
                                         }),
                                       ),
@@ -256,7 +258,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: ((ctx) {
+                                        builder: ((context) {
                                           return RegisterInstituition();
                                         }),
                                       ),

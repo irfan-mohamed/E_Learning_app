@@ -21,8 +21,8 @@ class SplashScreen extends StatelessWidget {
 
   Future<void> gotologin(BuildContext ctx) async {
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(ctx).pushReplacement(
-          MaterialPageRoute(builder: ((context) => LoginPage())));
+      Navigator.of(ctx)
+          .pushReplacement(MaterialPageRoute(builder: ((ctx) => LoginPage())));
     });
   }
 }
